@@ -50,6 +50,7 @@ const SearchResults = (props) => {
           <div key={index + task.task}>
             <label htmlFor={task.task}>
               <input
+                type="checkbox"
                 checked={task.statue}
                 onChange={() => {
                   handleChange(task.task);

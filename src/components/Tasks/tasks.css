@@ -7,6 +7,7 @@ section {
 }
 section > div {
   width: 80%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,11 +15,17 @@ section > div {
   font-size: 1.3em;
   font-family: sans-serif;
 }
+section > div > div:last-child {
+  width: 20px;
+}
 input {
   border: white solid 1px;
 }
 section > div > label {
   display: flex;
+
+  text-overflow: ellipsis;
+  width: 100%;
 }
 input[type="checkbox"] {
   appearance: none;
@@ -50,6 +57,13 @@ input[type="checkbox"]:checked:before {
   top: 1px;
 }
 
+label span {
+  display: inline-block;
+  width: calc(100% - 15px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
 @media (max-width: 500px) {
   section > div {
     width: 100%;

@@ -11,25 +11,23 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
   return (
-    <>
-      <div className={darkMode === true ? "dark-mode body" : "body"}>
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+    <div className={darkMode === true ? "dark-mode body" : "body"}>
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
-        <Main
-          darkMode={darkMode}
-          setDarkMode={setDarkMode}
-          tasks={tasks}
-          setTasks={setTasks}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-          search={search}
-          setSearch={setSearch}
-          searchResults={searchResults}
-          setSearchResults={setSearchResults}
-        />
-        <Footer darkMode={darkMode} />
-      </div>
-    </>
+      <Main
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        tasks={tasks}
+        setTasks={setTasks}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        search={search}
+        setSearch={setSearch}
+        searchResults={searchResults}
+        setSearchResults={setSearchResults}
+      />
+      <Footer darkMode={darkMode} />
+    </div>
   );
 }
 
