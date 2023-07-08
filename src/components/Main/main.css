@@ -70,6 +70,9 @@ main > form > div input:focus {
   }
 }
 @media (max-width: 500px) {
+  input[type="submit"] {
+    width: 100%;
+  }
   main > form > div:first-of-type {
     flex-direction: column;
   }
