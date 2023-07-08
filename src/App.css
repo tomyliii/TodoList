@@ -1,0 +1,19 @@
+.dark-mode {
+  background-color: rgb(49, 49, 49);
+}
+.dark-mode-txt {
+  color: rgb(255, 255, 255);
+}
+.light-mode-txt {
+  color: rgb(0, 0, 0);
+}
+.body {
+  height: 100vh;
+}
+.dark-mode-btn {
+  background-color: white;
+  color: black;
+}
+.line-through {
+  text-decoration: line-through;
+}

@@ -1,0 +1,22 @@
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+footer > p {
+  font-size: 1em;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+footer > p > span {
+  font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  footer > p {
+    font-size: 0.8em;
+  }
+}

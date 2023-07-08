@@ -1,0 +1,42 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 30px;
+  margin: 0px 30px 80px;
+  font-size: 2em;
+}
+header > button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-family: sans-serif;
+  cursor: pointer;
+  color: white;
+  background-color: #5c48d3;
+}
+header > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header > .dark-mode-btn {
+  color: #5c48d3;
+  background-color: white;
+}
+header > div > h1 {
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+@media (max-width: 500px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px 30px 80px;
+    font-size: 1.8em;
+  }
+}
