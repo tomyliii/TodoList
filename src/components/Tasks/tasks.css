@@ -19,7 +19,6 @@ input {
 }
 section > div > label {
   display: flex;
-  align-items: center;
 }
 input[type="checkbox"] {
   appearance: none;
