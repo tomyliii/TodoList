@@ -1,10 +1,10 @@
 .dark-mode {
   background-color: rgb(49, 49, 49);
 }
-.dark-mode-txt {
+[class*="dark-mode-txt"] {
   color: rgb(255, 255, 255);
 }
-.light-mode-txt {
+[class*="light-mode-txt"] {
   color: rgb(0, 0, 0);
 }
 .body {
@@ -14,6 +14,7 @@
   background-color: white;
   color: black;
 }
-.line-through {
+
+[class*="line-through"] {
   text-decoration: line-through;
 }

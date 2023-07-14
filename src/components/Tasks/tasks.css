@@ -28,10 +28,10 @@ section > div > label {
   width: 100%;
 }
 input[type="checkbox"] {
-  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
+  appearance: none;
   border-radius: 50%;
   height: 15px;
   width: 15px;

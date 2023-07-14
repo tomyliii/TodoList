@@ -1,78 +1,75 @@
-import { useEffect } from "react";
 import "./tasks.css";
-
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const Tasks = (props) => {
-  const handleChange = (value, index) => {
-    const newArray = [...props.tasks];
-    newArray[index].statue === true
-      ? (newArray[index].statue = false)
-      : (newArray[index].statue = true);
-    newArray.sort((a, b) => {
-      if (a.statue < b.statue) {
-        return -1;
-      }
-      if (a.statue > b.statue) {
-        return 1;
-      }
-    });
-    props.setTasks(newArray);
+  const handleChange = (value) => {
+    (async () => {
+      const response = await axios.put(
+        `http://localhost:3000/updatetasks?id=${value._id}`
+      );
+
+      response.data.data.sort((a, b) => {
+        if (a.statue < b.statue) {
+          return -1;
+        }
+        if (a.statue > b.statue) {
+          return 1;
+        }
+      });
+      props.setTasks(response.data.data);
+      const info = { color: "blue", txt: response.data.message };
+      props.setInfo(info);
+    })();
+    setTimeout(() => props.setInfo(""), 3000);
   };
 
-  const handleClick = (index, value) => {
-    const newArray = [...props.tasks];
-    newArray.splice(index, 1);
-    props.setTasks(newArray);
-    if (props.searchResults.find((task) => task.task === value)) {
-      const newSearchResultsArray = [...props.searchResults];
-      const index = props.searchResults.findIndex(
-        (task) => task.task === value
+  const handleClick = (value) => {
+    (async () => {
+      console.log(value);
+      const response = await axios.delete(
+        `http://localhost:3000/deletetask?id=${value._id}`
       );
-      newSearchResultsArray.splice(index, 1);
-      props.setSearchResults(newSearchResultsArray);
-    }
+      response.data.data.sort((a, b) => {
+        if (a.statue < b.statue) {
+          return -1;
+        }
+        if (a.statue > b.statue) {
+          return 1;
+        }
+      });
+      props.setTasks(response.data.data);
+      const info = { color: "red", txt: response.data.message };
+      props.setInfo(info);
+    })();
+    setTimeout(() => props.setInfo(""), 3000);
   };
   return (
     <section>
-      {props.tasks.map((task, index) => {
+      {props.tasks.map((task) => {
         return (
-          <div key={index + task.task}>
-            <label htmlFor={task.task}>
+          <div key={task._id}>
+            <label htmlFor={task._id}>
               <input
                 type="checkbox"
                 checked={task.statue}
                 onChange={() => {
-                  handleChange(task, index);
+                  handleChange(task);
                 }}
-                id={task.task}
+                id={task._id}
               />
-              {props.darkMode === true ? (
-                <span
-                  className={
-                    task.statue === true
-                      ? "dark-mode-txt line-through"
-                      : "dark-mode-txt "
-                  }
-                >
-                  {task.task}
-                </span>
-              ) : (
-                <span
-                  className={
-                    task.statue === true
-                      ? "light-mode-txt line-through"
-                      : "light-mode-txt "
-                  }
-                >
-                  {task.task}
-                </span>
-              )}
+              <span
+                className={`${
+                  props.darkMode === true ? "dark-mode-txt" : "light-mode-txt"
+                } ${task.statue === true && "line-through"}`}
+              >
+                {task.task}
+              </span>
             </label>
             <div
               onClick={() => {
-                handleClick(index, task.task);
+                handleClick(task);
               }}
             >
               <FontAwesomeIcon

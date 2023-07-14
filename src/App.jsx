@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+import axios from "axios";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -10,6 +11,23 @@ function App() {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
+  const [info, setInfo] = useState({});
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get("http://localhost:3000/gettasks");
+      data.data.sort((a, b) => {
+        if (a.statue < b.statue) {
+          return -1;
+        }
+        if (a.statue > b.statue) {
+          return 1;
+        }
+      });
+      setTasks(data.data);
+    })();
+  }, []);
+
   return (
     <div className={darkMode === true ? "dark-mode body" : "body"}>
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
@@ -25,6 +43,8 @@ function App() {
         setSearch={setSearch}
         searchResults={searchResults}
         setSearchResults={setSearchResults}
+        info={info}
+        setInfo={setInfo}
       />
       <Footer darkMode={darkMode} />
     </div>

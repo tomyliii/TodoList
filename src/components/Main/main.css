@@ -54,6 +54,34 @@ main > form > div:first-of-type > input:last-of-type {
 main > form > div input:focus {
   border: none;
 }
+
+.green {
+  color: green;
+  font-family: sans-serif;
+  position: fixed;
+  bottom: 30px;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 15px;
+  box-shadow: 1px 1px 30px #afa7d9;
+}
+.blue {
+  color: blue;
+  font-family: sans-serif;
+  position: fixed;
+  bottom: 30px;
+  background-color: white;
+  border-radius: 25px;
+}
+.red {
+  color: red;
+  font-family: sans-serif;
+  position: fixed;
+  bottom: 30px;
+  background-color: white;
+  border-radius: 25px;
+}
+
 @media (min-width: 1281px) {
   input[type="submit"]:hover {
     cursor: pointer;
