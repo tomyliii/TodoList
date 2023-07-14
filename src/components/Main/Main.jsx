@@ -18,7 +18,7 @@ const Main = (props) => {
 
       (async () => {
         const response = await axios.post(
-          "http://localhost:3000/addtask",
+          "site--todolist--tzmxcvqjqbzq.code.run/addtask",
           task
         );
         console.log(response);

@@ -6,7 +6,7 @@ const SearchResults = (props) => {
   const handleChange = (value) => {
     (async () => {
       const response = await axios.put(
-        `http://localhost:3000/updatetasks?id=${value._id}`
+        `site--todolist--tzmxcvqjqbzq.code.run/updatetasks?id=${value._id}`
       );
       response.data.data.sort((a, b) => {
         if (a.statue < b.statue) {
@@ -65,7 +65,7 @@ const SearchResults = (props) => {
   const handleClick = (value) => {
     (async () => {
       const response = await axios.delete(
-        `http://localhost:3000/deletetask?id=${value._id}`
+        `site--todolist--tzmxcvqjqbzq.code.run/deletetask?id=${value._id}`
       );
       response.data.data.sort((a, b) => {
         if (a.statue < b.statue) {
