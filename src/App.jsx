@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(
-        "site--todolist--tzmxcvqjqbzq.code.run/gettasks"
+        "https://site--todolist--tzmxcvqjqbzq.code.run//gettasks"
       );
       data.data.sort((a, b) => {
         if (a.statue < b.statue) {
