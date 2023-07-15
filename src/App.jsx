@@ -30,6 +30,19 @@ function App() {
     })();
   }, []);
 
+  useEffect(() => {
+    if (search && tasks.length !== 0) {
+      const regexp = new RegExp(`${search}`, "ig");
+      const filter = tasks.filter((task) => regexp.test(task.task));
+      console.log(search, "search");
+
+      console.log(filter);
+      setSearchResults(filter);
+    } else {
+      setSearchResults([]);
+    }
+  }, [tasks, search]);
+
   return (
     <div className={darkMode === true ? "dark-mode body" : "body"}>
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />

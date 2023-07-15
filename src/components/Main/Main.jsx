@@ -44,17 +44,16 @@ const Main = (props) => {
   const handleOnKeyUp = () => {
     if (props.search) {
       const regexp = new RegExp(`${props.search}`, "ig");
-      const filter = [];
-      //const filter=props.tasks.filter(task=>regexp.test(task.task)
-      props.tasks.forEach((task) => {
-        if (regexp.test(task.task)) {
-          filter.push(task);
-          //si j enleve ce console log et qu un task a le meme nom qu un autre avec le meme statu il n y en a qu un qui sera affiché
-          console.log(regexp.test(task.task));
-        }
-      });
+      // const filter = [];
+      const filter = props.tasks.filter((task) => regexp.test(task.task));
+      // props.tasks.forEach((task) => {
+      //   if (regexp.test(task.task)) {
+      //     filter.push(task);
+      //si j enleve ce console log et qu un task a le meme nom qu un autre avec le meme statu il n y en a qu un qui sera affiché
+      //     console.log(regexp.test(task.task));
+      //   }
+      // });
       props.setSearchResults(filter);
-      console.log(filter);
     } else {
       props.setSearchResults([]);
     }

@@ -15,27 +15,28 @@ const SearchResults = (props) => {
         if (a.statue > b.statue) {
           return 1;
         }
-        if (props.search) {
-          const regexp = new RegExp(`${props.search}`, "ig");
-          const filter = [];
+        // if (props.search) {
+        //   const regexp = new RegExp(`${props.search}`, "ig");
+        //   const filter = [];
 
-          response.data.data.forEach((task) => {
-            if (regexp.test(task.task)) {
-              filter.push(task);
+        //   response.data.data.forEach((task) => {
+        //     if (regexp.test(task.task)) {
+        //       filter.push(task);
 
-              console.log(regexp.test(task.task));
-            }
-          });
-          props.setSearchResults(filter);
-          console.log(filter);
-        } else {
-          props.setSearchResults([]);
-        }
+        //       console.log(regexp.test(task.task));
+        //     }
+        //   });
+        //   props.setSearchResults(filter);
+        //   console.log(filter);
+        // } else {
+        //   props.setSearchResults([]);
+        // }
       });
 
       props.setTasks(response.data.data);
       const info = { color: "blue", txt: response.data.message };
       props.setInfo(info);
+      setTimeout(() => props.setInfo(""), 3000);
     })();
     // const newArraytasksFounded = [...props.searchResults];
     // const index = newArraytasksFounded.findIndex(
@@ -59,7 +60,6 @@ const SearchResults = (props) => {
     //   }
     // });
     // props.setSearchResults(newArraytasksFounded);
-    setTimeout(() => props.setInfo(""), 3000);
   };
 
   const handleClick = (value) => {
@@ -81,13 +81,13 @@ const SearchResults = (props) => {
     })();
     setTimeout(() => props.setInfo(""), 3000);
 
-    const newArraytasksFounded = [...props.searchResults];
-    const indexOfTask = newArraytasksFounded.findIndex(
-      (task) => task._id === value._id
-    );
+    // const newArraytasksFounded = [...props.searchResults];
+    // const indexOfTask = newArraytasksFounded.findIndex(
+    //   (task) => task._id === value._id
+    // );
 
-    newArraytasksFounded.splice(indexOfTask, 1);
-    props.setSearchResults(newArraytasksFounded);
+    // newArraytasksFounded.splice(indexOfTask, 1);
+    // props.setSearchResults(newArraytasksFounded);
   };
   return (
     <section>
